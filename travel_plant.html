@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台北-上海蘇州9天悠閒深度遊行程表 (完整版)</title>
+    <style>
+        :root {
+            --primary-color: #1f4e5f; /* 圖片中的深青色 */
+            --secondary-color: #f0f8ff;
+            --highlight-bg: #e6eff2;
+            --border-color: #ccc;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .top-links {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #ffeb3b;
+        }
+        
+        .top-links a {
+            color: #ffeb3b;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 10px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Tabs Styling - Improved for mobile scrolling */
+        .tabs-container {
+            width: 100%;
+            overflow-x: auto;
+            background-color: #ddd;
+        }
+
+        .tabs {
+            display: flex;
+            white-space: nowrap;
+            min-width: max-content;
+        }
+
+        .tab-btn {
+            padding: 15px 20px;
+            border: none;
+            background: #ddd;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #555;
+            transition: 0.3s;
+            border-right: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .tab-btn:hover {
+            background-color: #ccc;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tab-date { display: block; }
+        .tab-desc { font-size: 0.8em; font-weight: normal; }
+
+        /* Content Styling */
+        .tab-content {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Table Styling */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; 
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        .schedule-table th, .schedule-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+            font-size: 0.95rem;
+        }
+
+        .schedule-table th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+
+        .schedule-table tr:hover {
+            background-color: var(--highlight-bg);
+        }
+
+        .col-time { width: 110px; font-weight: bold; white-space: nowrap; }
+        .col-type { width: 60px; text-align: center; }
+        .col-activity { font-weight: bold; }
+        .col-transport { font-size: 0.9rem; color: #555; }
+        
+        .tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 3px;
+        }
+        .tag-metro { background-color: #e0f7fa; color: #006064; border: 1px solid #b2ebf2; }
+        .tag-walk { background-color: #f1f8e9; color: #33691e; border: 1px solid #dcedc8; }
+        .tag-hsr { background-color: #fff3e0; color: #e65100; border: 1px solid #ffe0b2; }
+        .tag-flight { background-color: #e3f2fd; color: #0d47a1; border: 1px solid #bbdefb; }
+        .tag-bus { background-color: #fff8e1; color: #ff6f00; border: 1px solid #ffecb3; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>台北-上海蘇州9天悠閒深度遊行程表</h1>
+    <div class="top-links">
+        [行程快速連結] / [地鐵路線]
+    </div>
+</header>
+
+<div class="container">
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'day1')"><span class="tab-date">03/14 (六)</span><span class="tab-desc">出發/上海</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day2')"><span class="tab-date">03/15 (日)</span><span class="tab-desc">上海 CW1</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day3')"><span class="tab-date">03/16 (一)</span><span class="tab-desc">上海 CW2</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day4')"><span class="tab-date">03/17 (二)</span><span class="tab-desc">蘇州 CW1</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day5')"><span class="tab-date">03/18 (三)</span><span class="tab-desc">蘇州 CW2</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day6')"><span class="tab-date">03/19 (四)</span><span class="tab-desc">蘇州/同里</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day7')"><span class="tab-date">03/20 (五)</span><span class="tab-desc">蘇州/上海</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day8')"><span class="tab-date">03/21 (六)</span><span class="tab-desc">上海古鎮</span></button>
+            <button class="tab-btn" onclick="openTab(event, 'day9')"><span class="tab-date">03/22 (日)</span><span class="tab-desc">回家</span></button>
+        </div>
+    </div>
+
+    <div id="day1" class="tab-content active">
+        <h3>Day 1: 台北 -> 上海 (出發)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">住家→機場</td>
+                        <td class="col-time">1300-1500</td>
+                        <td class="col-type">捷運</td>
+                        <td class="col-transport">捷運+機捷</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">貴賓室候機</td>
+                        <td class="col-time">1530-1730</td>
+                        <td class="col-type">候機</td>
+                        <td class="col-transport">環亞貴賓室(A區)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">桃園→上海</td>
+                        <td class="col-time">1805-2005</td>
+                        <td class="col-type">飛行</td>
+                        <td class="col-transport"><span class="tag tag-flight">CZ3096</span> 桃園T2(TPE) -> 上海T2(PVG)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">機場→飯店</td>
+                        <td class="col-time">2100-2300</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">
+                            <span class="tag tag-metro">地鐵2號線->地鐵1號線</span><br>
+                            1小時41分鐘(50.7公里)/步行1.0公里/8元<br>
+                            <strong>住宿：上海靜安聯儲幸福PARKHOME飯店(舒雅雙床房)</strong><br>
+                            抖音商城1089825218626581000
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day2" class="tab-content">
+        <h3>Day 2: 上海 CityWalk (豫園、外灘)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">飯店→豫園</td>
+                        <td class="col-time">0900-1000</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵1號線->地鐵14號線</span><br>50分鐘(13.8公里)/步行1.1公里/4元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">豫園商城、城隍廟</td>
+                        <td class="col-time">1000-1300</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">門票30</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">豫園→南京路</td>
+                        <td class="col-time">1300-1330</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵10號線</span><br>21分鐘 (2.4公里 ) | 步行1.3公里 | 3元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">南京路步行街</td>
+                        <td class="col-time">1340-1640</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">南京路→外灘</td>
+                        <td class="col-time">1650-1710</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">南京路步行街>山西南路>......>九江路<br>12分鐘(839米)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">外灘夜景漫遊</td>
+                        <td class="col-time">1710-1910</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">外灘萬國建築群：白天欣賞「遠東華爾街」的歷史建築博覽群。<br>外灘夜景：燈光亮起後，欣賞浦東天際線與黃浦江的璀璨夜景。</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">外灘→飯店</td>
+                        <td class="col-time">2000-2100</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵1號線</span><br>52分鐘(11.6公里)/步行2.0公里/4元<br><strong>住宿：上海靜安聯儲幸福PARKHOME飯店</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day3" class="tab-content">
+        <h3>Day 3: 上海 CityWalk 2 (武康路、1933老場坊、陸家嘴)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">飯店->武康路</td>
+                        <td class="col-time">0900-1000</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵1號線</span><br>54分鐘(16.0公里)/步行1.6公里/4元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">武康路漫步</td>
+                        <td class="col-time">1000-1200</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">武康路->田子坊</td>
+                        <td class="col-time">1200-1240</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵11號線 地鐵9號線</span><br>31分鐘 (5.5公里 ) | 步行1.2公里 | 3元<br>備註：張園/豐盛里 (靜安寺周邊時尚休閒區)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">田子坊探索</td>
+                        <td class="col-time">1250-1450</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">新天地：石庫門改造的時尚地標，高端餐廳、酒吧林立。</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">田子坊→1933老場坊</td>
+                        <td class="col-time">1430-1530</td>
+                        <td class="col-type">公車</td>
+                        <td class="col-transport"><span class="tag tag-bus">公車17路</span><br>49分鐘 ( 7.6公里 ) | 步行428米 | 2元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">1933老場坊</td>
+                        <td class="col-time">1500-1700</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">田子坊：由老弄堂改造的藝術文創區，格局狹小緊湊，小店、畫廊、咖啡館林立。</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">1933老場坊→陸家嘴</td>
+                        <td class="col-time">1700-1730</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵4號線內圈 地鐵14號線</span><br>36分鐘 ( 7.5公里 ) | 步行1.1公里 | 3元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">陸家嘴夜景</td>
+                        <td class="col-time">1730-1930</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">陸家嘴→飯店</td>
+                        <td class="col-time">1930-2030</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵2號線 地鐵1號線</span><br>45分鐘 ( 13.5公里 ) | 步行933米 | 4元<br><strong>住宿：上海靜安聯儲幸福PARKHOME飯店</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day4" class="tab-content">
+        <h3>Day 4: 蘇州 CityWalk (平江路、雙塔、山塘街)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">飯店→上海高鐵站</td>
+                        <td class="col-time">0700-0800</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">地鐵約50分鐘</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">上海站→蘇州站</td>
+                        <td class="col-time">0815-0847</td>
+                        <td class="col-type">高鐵</td>
+                        <td class="col-transport"><span class="tag tag-hsr">上海站/蘇州站 [G7232] 32分鐘</span></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">蘇州站→飯店</td>
+                        <td class="col-time">0900-0930</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">飯店行李寄存</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店→平江路</td>
+                        <td class="col-time">1000-1030</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">平江路：沿河歷史老街，完美展現「小橋流水人家」的江南風韻。</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">平江路</td>
+                        <td class="col-time">1030-1230</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">可喝茶、聽評彈、逛文創小店。</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">平江路->雙塔市集</td>
+                        <td class="col-time">1230-1250</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">混堂巷 > 平江路 > ...... > 干将东路 > 石匠弄<br>14分鐘 ( 987米 )</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">雙塔市集</td>
+                        <td class="col-time">1300-1500</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">雙塔市集→山塘街</td>
+                        <td class="col-time">1530-1610</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">軌道交通1號線 軌道交通2號線</span><br>35分鐘 ( 5.9公里 ) | 步行1.1公里 | 2元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">七里山塘</td>
+                        <td class="col-time">1630-2000</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">山塘街→飯店</td>
+                        <td class="col-time">2000-2100</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">住宿：平江路附近</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day5" class="tab-content">
+        <h3>Day 5: 蘇州 CityWalk 2 (園林、觀前街)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">飯店->拙政園</td>
+                        <td class="col-time">0630-0700</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">拙政園</td>
+                        <td class="col-time">0730-1000</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">門票70</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">獅子林</td>
+                        <td class="col-time">1030-1200</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">門票40</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">獅子林->觀前街</td>
+                        <td class="col-time">1200-1240</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">獅林寺巷 > 臨頓路 > ...... > 碧鳳坊<br>23分鐘 ( 1.7公里 )</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">觀前街</td>
+                        <td class="col-time">1300-1500</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">觀前街 -> 十全街</td>
+                        <td class="col-time">1500-1530</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport">宮巷 > 干将东路 > ...... > 十梓街 > 十全街<br>25分鐘 ( 1.8公里 )</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">十全街</td>
+                        <td class="col-time">1600-1900</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">十全街->飯店</td>
+                        <td class="col-time">1900-2000</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">住宿：平江路附近</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+     <div id="day6" class="tab-content">
+        <h3>Day 6: 蘇州 (虎丘、同里古鎮)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-activity">飯店行李寄存</td>
+                        <td class="col-time">0700-0730</td>
+                        <td class="col-type"></td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店->虎丘山</td>
+                        <td class="col-time">0730-0800</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">虎丘山</td>
+                        <td class="col-time">0800-1100</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">門票70</td>
+                    </tr>
+                     <tr>
+                        <td class="col-activity">虎丘山->閶門橫街</td>
+                        <td class="col-time">1100-1200</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">軌道交通6號線</span><br>47分鐘 ( 11.6公里 ) | 步行1.7公里 | 3元</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">閶門橫街</td>
+                        <td class="col-time">1200-1500</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">閶門橫街->飯店</td>
+                        <td class="col-time">1500-1530</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店->同里古鎮</td>
+                        <td class="col-time">1530-1800</td>
+                        <td class="col-type">公交</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">同里古鎮</td>
+                        <td class="col-time">1800-2400</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">1715後免票<br><strong>住宿：同里古鎮</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day7" class="tab-content">
+        <h3>Day 7: 蘇州 -> 上海 (同里、七寶古鎮)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td class="col-activity">同里古鎮</td>
+                        <td class="col-time">0800-1000</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">同里古鎮->蘇州站</td>
+                        <td class="col-time">1000-1200</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">吳江智軌T1示範線 軌道交通4號線</span><br>1小時24分鐘 ( 37.9公里 ) | 步行485米</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">蘇州站→上海虹橋站</td>
+                        <td class="col-time">1152-1224</td>
+                        <td class="col-type">高鐵</td>
+                        <td class="col-transport"><span class="tag tag-hsr">蘇州/上海虹橋 [G7111] 32分鐘</span></td>
+                    </tr>
+                     <tr>
+                        <td class="col-activity">上海虹橋站->飯店</td>
+                        <td class="col-time">1230-1310</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店->七寶古鎮</td>
+                        <td class="col-time">1330-1400</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">七寶古鎮</td>
+                        <td class="col-time">1400-1700</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">免票</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">七寶古鎮->飯店</td>
+                        <td class="col-time">1700-1800</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><strong>住宿：上海虹橋</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day8" class="tab-content">
+        <h3>Day 8: 上海古鎮 (南翔、朱家角)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td class="col-activity">飯店行李寄存</td>
+                        <td class="col-time">0700-0730</td>
+                        <td class="col-type">步行</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店->南翔古鎮</td>
+                        <td class="col-time">0730-0900</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">南翔古鎮</td>
+                        <td class="col-time">0900-1200</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">免票</td>
+                    </tr>
+                     <tr>
+                        <td class="col-activity">南翔古鎮->飯店</td>
+                        <td class="col-time">1200-1330</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport">取行李</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">飯店->朱家角古鎮</td>
+                        <td class="col-time">1330-1500</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">朱家角古鎮</td>
+                        <td class="col-time">1900-2000</td>
+                        <td class="col-type">漫遊</td>
+                        <td class="col-transport">免票<br><strong>住宿：朱家角</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="day9" class="tab-content">
+        <h3>Day 9: 上海 -> 台北 (回家)</h3>
+        <div class="table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>行程</th>
+                        <th>時間</th>
+                        <th>類型</th>
+                        <th>交通 / 備註</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                        <td class="col-activity">飯店->機場</td>
+                        <td class="col-time">1000-1230</td>
+                        <td class="col-type">地鐵</td>
+                        <td class="col-transport"><span class="tag tag-metro">地鐵2號線</span></td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">候機</td>
+                        <td class="col-time">1230-1430</td>
+                        <td class="col-type">候機</td>
+                        <td class="col-transport">浦東機場T2</td>
+                    </tr>
+                    <tr>
+                        <td class="col-activity">上海->桃園</td>
+                        <td class="col-time">1435-1650</td>
+                        <td class="col-type">飛行</td>
+                        <td class="col-transport"><span class="tag tag-flight">CZ3095</span> 浦東T2(PVG) -> 桃園T2(TPE)</td>
+                    </tr>
+                     <tr>
+                        <td class="col-activity">機場->住家</td>
+                        <td class="col-time">1730-1930</td>
+                        <td class="col-type">捷運</td>
+                        <td class="col-transport">機捷+捷運</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function openTab(evt, dayName) {
+        var i, tabcontent, tablinks;
+        
+        // Hide all tab content
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+            tabcontent[i].style.display = "none";
+        }
+
+        // Remove active class from all buttons
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // Show the current tab and add active class to button
+        document.getElementById(dayName).style.display = "block";
+        // Small delay to allow display:block to apply before opacity transition
+        setTimeout(() => {
+            document.getElementById(dayName).classList.add("active");
+        }, 10);
+        
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
