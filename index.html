@@ -100,7 +100,7 @@
             padding-bottom: 10px;
         }
 
-        /* 表格響應式設計 */
+        /* 表格響應式設計 - 修改為兩行式 */
         .table-wrapper {
             overflow-x: auto;
             margin: 15px 0;
@@ -128,8 +128,42 @@
             white-space: nowrap;
         }
 
-        tr:nth-child(even) {
+        /* 第一行樣式 - 行程、時間、類型 */
+        .schedule-row {
             background-color: #f9f9f9;
+            border-bottom: none;
+        }
+        
+        .schedule-row td {
+            padding-bottom: 8px;
+        }
+
+        /* 第二行樣式 - 交通/備註 */
+        .detail-row {
+            background-color: #f0f8ff;
+            border-top: none;
+        }
+        
+        .detail-row td {
+            padding-top: 8px;
+            border-top: 1px dashed #ccc;
+        }
+
+        /* 設置列寬度 */
+        .col-itinerary {
+            width: 15%;
+        }
+        
+        .col-time {
+            width: 15%;
+        }
+        
+        .col-type {
+            width: 10%;
+        }
+        
+        .col-details {
+            width: 60%;
         }
 
         /* 表格鏈接樣式 */
@@ -205,6 +239,10 @@
             .tab-content h2 {
                 font-size: 1.3rem;
             }
+            
+            .col-itinerary, .col-time, .col-type, .col-details {
+                width: auto;
+            }
         }
 
         @media (max-width: 768px) {
@@ -249,6 +287,14 @@
             th, td {
                 padding: 8px 6px;
                 font-size: 13px;
+            }
+            
+            .schedule-row td {
+                padding-bottom: 6px;
+            }
+            
+            .detail-row td {
+                padding-top: 6px;
             }
             
             .table-wrapper a {
@@ -371,47 +417,57 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註 (點擊虛線框可設定連結)</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>住家 -> 機場</td>
                         <td>1300-1500</td>
                         <td>捷運</td>
-                        <td>捷運+機捷</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">捷運+機捷</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>貴賓室候機</td>
                         <td>1530-1730</td>
                         <td>候機</td>
-                        <td><a href="https://drive.google.com/file/d/1inUwmrxNnknXDFle5s0ic-DjPNgc5N4e/view" 
-                               target="_blank">環亞貴賓室(A區)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://drive.google.com/file/d/1inUwmrxNnknXDFle5s0ic-DjPNgc5N4e/view" target="_blank">環亞貴賓室(A區)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>桃園 -> 上海</td>
                         <td>1805-2005</td>
                         <td>飛行</td>
-                        <td><a href="https://drive.google.com/file/d/1Bqf1K_GBKDRu4_ojbPgcLMzwrjImIgdg/view"
-                               target="_blank">桃園T2(TPE)>上海T2(PVG)[CZ3096]</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://drive.google.com/file/d/1Bqf1K_GBKDRu4_ojbPgcLMzwrjImIgdg/view" target="_blank">桃園T2(TPE)>上海T2(PVG)[CZ3096]</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>機場 -> 飯店</td>
                         <td>2100-2300</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/laymkj" target="_blank">地鐵2號線>地鐵1號線 , 1小時41分鐘(50.7公里)/步行1.0公里/8元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/laymkj" target="_blank">地鐵2號線>地鐵1號線 , 1小時41分鐘(50.7公里)/步行1.0公里/8元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2300-0700</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/R9e5d9" target="_blank">上海靜安聯儲幸福PARKHOME飯店(舒雅雙床房)/CNY200</a><br>
-                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" 
-                               target="_blank">抖音商城1089825218626581000</a>
+                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" target="_blank">抖音商城1089825218626581000</a>
                         </td>
                     </tr>
                 </tbody>
@@ -425,78 +481,104 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>早餐</td>
                         <td>0700-0800</td>
                         <td>早餐</td>
-                        <td>飯店早餐</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">飯店早餐</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 豫園</td>
                         <td>0800-0900</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/jmyz5y" target="_blank">地鐵1號線>地鐵14號線 , 50分鐘(13.8公里)/步行1.1公里/4元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/jmyz5y" target="_blank">地鐵1號線>地鐵14號線 , 50分鐘(13.8公里)/步行1.1公里/4元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>豫園商城 -> 城隍廟</td>
                         <td>0900-1200</td>
                         <td>漫遊</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://diqu.16fan.com/lazymap/167_6569.html#/" target="_blank">豫園商城路線</a> / 
                             <a href="https://guide.16fan.com/inode/347522.html" target="_blank">豫園攻略</a> / 
                             <a href="https://guide.16fan.com/inode/315834.html" target="_blank">城隍廟攻略</a> / 
                             門票30
                         </td>
                     </tr>
-                    <tr>
+                    
+                    <tr class="schedule-row">
                         <td>豫園 -> 南京路</td>
                         <td>1200-1230</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/pKvlx4" target="_blank">地鐵10號線 , 21分鐘(2.4公里)/步行1.3公里/3元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/pKvlx4" target="_blank">地鐵10號線 , 21分鐘(2.4公里)/步行1.3公里/3元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南京路步行街</td>
                         <td>1240-1540</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://diqu.16fan.com/lazymap/209_6540.html#/" target="_blank">南京路步行街路線</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=938974630" target="_blank">南京路步行街</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://diqu.16fan.com/lazymap/209_6540.html#/" target="_blank">南京路步行街路線</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=938974630" target="_blank">南京路步行街</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南京路步行街 -> 外灘</td>
                         <td>1550-1610</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/zKD3Nk" target="_blank">南京路步行街>山西南路>......>九江路 , 12分鐘(839公尺)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/zKD3Nk" target="_blank">南京路步行街>山西南路>......>九江路 , 12分鐘(839公尺)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>外灘</td>
                         <td>1610-2000</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://diqu.16fan.com/lazymap/3_6597.html#/" target="_blank">外灘路線</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1731997669" target="_blank">外灘萬國建築群</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://diqu.16fan.com/lazymap/3_6597.html#/" target="_blank">外灘路線</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1731997669" target="_blank">外灘萬國建築群</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>外灘 -> 飯店</td>
                         <td>2000-2100</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/8bXEj4" target="_blank">地鐵1號線 , 52分鐘(11.6公里)/步行2.0公里/4元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/8bXEj4" target="_blank">地鐵1號線 , 52分鐘(11.6公里)/步行2.0公里/4元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2100-0700</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/R9e5d9" target="_blank">上海靜安聯儲幸福PARKHOME飯店(舒雅雙床房)/CNY200</a><br>
-                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" 
-                               target="_blank">抖音商城1089825218626581000</a>
+                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" target="_blank">抖音商城1089825218626581000</a>
                         </td>
                     </tr>
                 </tbody>
@@ -510,95 +592,130 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>早餐</td>
                         <td>0700-0800</td>
                         <td>早餐</td>
-                        <td>飯店早餐</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">飯店早餐</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 武康路</td>
                         <td>0800-0900</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/jmyz3Z" target="_blank">地鐵1號線 , 54分鐘(16.0公里)/步行1.6公里/4元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/jmyz3Z" target="_blank">地鐵1號線 , 54分鐘(16.0公里)/步行1.6公里/4元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>武康路</td>
                         <td>0900-1200</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://diqu.16fan.com/lazymap/21_6538.html#/" target="_blank">武康路路線</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1906170774" target="_blank">武康路歷史街區</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://diqu.16fan.com/lazymap/21_6538.html#/" target="_blank">武康路路線</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1906170774" target="_blank">武康路歷史街區</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>武康路 -> 田子坊</td>
                         <td>1200-1240</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/VmMA0Y" target="_blank">地鐵11號線>地鐵9號線 , 31分鐘(5.5公里)/步行1.2公里/3元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/VmMA0Y" target="_blank">地鐵11號線>地鐵9號線 , 31分鐘(5.5公里)/步行1.2公里/3元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>田子坊</td>
                         <td>1250-1450</td>
                         <td>漫遊</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://diqu.16fan.com/lazymap/157_6659.html#/" target="_blank">田子坊路線</a> / 
                             <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1426154670" target="_blank">田子坊</a> : 
                             <br>由老弄堂改造的藝術文創區，格局狹小緊湊，小店、畫廊、咖啡館林立，氛圍市井而文藝。
                         </td>
                     </tr>
-                    <tr>
+                    
+                    <tr class="schedule-row">
                         <td>田子坊 -> 1933老場坊</td>
                         <td>1450-1550</td>
                         <td>公交</td>
-                        <td><a href="https://reurl.cc/xKv5X4" target="_blank">公交17路 , 49分鐘(7.6公里)/步行428公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/xKv5X4" target="_blank">公交17路 , 49分鐘(7.6公里)/步行428公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>1933老場坊</td>
                         <td>1600-1700</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/313384.html" target="_blank">1933老場坊</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/313384.html" target="_blank">1933老場坊</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>1933老場坊 -> 陸家嘴</td>
                         <td>1700-1740</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/3b4gpO" target="_blank">地鐵4號線內圈地鐵14號線 , 36分鐘(7.5公里)/步行1.1公里/3元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/3b4gpO" target="_blank">地鐵4號線內圈地鐵14號線 , 36分鐘(7.5公里)/步行1.1公里/3元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>田子坊 -> 陸家嘴 (備選)</td>
                         <td>1600-1640</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/VmMAo6" target="_blank">地鐵9號線地鐵2號線 , 29分鐘(9.8公里) | 步行331公尺 | 3元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/VmMAo6" target="_blank">地鐵9號線地鐵2號線 , 29分鐘(9.8公里) | 步行331公尺 | 3元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>陸家嘴</td>
                         <td>1740-1940</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://diqu.16fan.com/lazymap/14_6568.html#/" target="_blank">陸家嘴路線</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1692889481" target="_blank">陸家嘴CityWalk</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://diqu.16fan.com/lazymap/14_6568.html#/" target="_blank">陸家嘴路線</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1692889481" target="_blank">陸家嘴CityWalk</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>陸家嘴 -> 飯店</td>
                         <td>1940-2030</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/VmMAON" target="_blank">地鐵2號線>地鐵1號線 , 45分鐘(13.5公里)/步行933公尺/4元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/VmMAON" target="_blank">地鐵2號線>地鐵1號線 , 45分鐘(13.5公里)/步行933公尺/4元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2030-2400</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/R9e5d9" target="_blank">上海靜安聯儲幸福PARKHOME飯店(舒雅雙床房)/CNY200</a><br>
-                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" 
-                               target="_blank">抖音商城1089825218626581000</a>
+                            <a href="https://drive.google.com/file/d/1aplURJUz2dSfxA3dtHJ7XF6xoDYUUTel/view" target="_blank">抖音商城1089825218626581000</a>
                         </td>
                     </tr>
                 </tbody>
@@ -612,80 +729,112 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>早餐</td>
                         <td>0700-0730</td>
                         <td>早餐</td>
-                        <td>飯店早餐</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">飯店早餐</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 上海高鐵站</td>
                         <td>0730-0800</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/9b3ekv" target="_blank">地鐵1號線 , 24分鐘(7.3公里)/步行401公尺/4元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/9b3ekv" target="_blank">地鐵1號線 , 24分鐘(7.3公里)/步行401公尺/4元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>上海站 -> 蘇州站</td>
                         <td>0815-0847</td>
                         <td>高鐵</td>
-                        <td><a href="https://reurl.cc/0adAMo" target="_blank">上海站/蘇州站[G7232]32分鐘</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/0adAMo" target="_blank">上海站/蘇州站[G7232]32分鐘</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>蘇州站 -> 飯店</td>
                         <td>0900-0930</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/LQlyGX" target="_blank">軌道交通2號線>軌道交通6號線 , 28分鐘(6.4公里)/步行759公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/LQlyGX" target="_blank">軌道交通2號線>軌道交通6號線 , 28分鐘(6.4公里)/步行759公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店行李寄存</td>
                         <td>0930-1000</td>
                         <td></td>
-                        <td>行李寄存</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">行李寄存</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 虎丘山</td>
                         <td>1020-1110</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/dqyNMD" target="_blank">軌道交通6號線 , 35分鐘(9.4公里)/步行1.1公里/3元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/dqyNMD" target="_blank">軌道交通6號線 , 35分鐘(9.4公里)/步行1.1公里/3元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>虎丘山</td>
                         <td>1200-1600</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317298.html" target="_blank">虎丘山風景區</a> / 門票70</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317298.html" target="_blank">虎丘山風景區</a> / 門票70</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>虎丘山 -> 山塘街</td>
                         <td>1600-1630</td>
                         <td>公交</td>
-                        <td><a href="https://reurl.cc/MMjppv" target="_blank">姑蘇旅遊訂製公車58號(虎丘寒山寺線) , 18分鐘(3.9公里)/步行260公尺</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/MMjppv" target="_blank">姑蘇旅遊訂製公車58號(虎丘寒山寺線) , 18分鐘(3.9公里)/步行260公尺</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>七里山塘</td>
                         <td>1630-2000</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://guide.16fan.com/inode/317286.html" target="_blank">七里山塘攻略</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1880307862" target="_blank">七里山塘景區</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://guide.16fan.com/inode/317286.html" target="_blank">七里山塘攻略</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1880307862" target="_blank">七里山塘景區</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>山塘街 -> 飯店</td>
                         <td>2000-2100</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/XaR7N0" target="_blank">軌道交通2號線>軌道交通6號線 , 36分鐘(8.4公里)/步行1.1公里/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/XaR7N0" target="_blank">軌道交通2號線>軌道交通6號線 , 36分鐘(8.4公里)/步行1.1公里/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2100-2400</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/DblzR5" target="_blank">慧間飯店(拙政園平江路店)/特惠雙床房/含早/CNY166</a><br>
                             <a href="https://drive.google.com/file/d/1HwbXtPzo4wDVbOPv3bMiUGzMcPOuhhmq/view" target="_blank">抖音商城1089997106801301000</a>
                         </td>
@@ -701,88 +850,124 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>早餐</td>
                         <td>0630-0700</td>
                         <td>早餐</td>
-                        <td>飯店早餐</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">飯店早餐</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 拙政園</td>
                         <td>0710-0730</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/LQl877" target="_blank">臨頓路>東北街 , 11分鐘(779公尺)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/LQl877" target="_blank">臨頓路>東北街 , 11分鐘(779公尺)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>拙政園</td>
                         <td>0730-1000</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317209.html" target="_blank">拙政園攻略</a> / 門票70</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317209.html" target="_blank">拙政園攻略</a> / 門票70</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>獅子林</td>
                         <td>1020-1200</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317210.html" target="_blank">獅子林攻略</a> / 門票40</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317210.html" target="_blank">獅子林攻略</a> / 門票40</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>獅子林 -> 平江路</td>
                         <td>1200-1230</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/yKvpry" target="_blank">獅林寺巷> 平江路> ...... > 混堂巷 , 17分鐘(1.2公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/yKvpry" target="_blank">獅林寺巷> 平江路> ...... > 混堂巷 , 17分鐘(1.2公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>平江路</td>
                         <td>1230-1500</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://guide.16fan.com/inode/317211.html" target="_blank">平江路攻略</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1897422169" target="_blank">平江路歷史街區</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://guide.16fan.com/inode/317211.html" target="_blank">平江路攻略</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1897422169" target="_blank">平江路歷史街區</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>平江路 -> 觀前街</td>
                         <td>1500-1530</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/NNlkG5" target="_blank">混堂巷> 平江路> ...... > 臨頓路> 碧鳳坊 , 16分鐘(1.2公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/NNlkG5" target="_blank">混堂巷> 平江路> ...... > 臨頓路> 碧鳳坊 , 16分鐘(1.2公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>觀前街</td>
                         <td>1530-1700</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://guide.16fan.com/inode/317242.html" target="_blank">觀前街攻略</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1022191092" target="_blank">觀前街</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://guide.16fan.com/inode/317242.html" target="_blank">觀前街攻略</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1022191092" target="_blank">觀前街</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>觀前街 -> 東方之門</td>
                         <td>1700-1730</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/5bd6Oy" target="_blank">軌道交通1號線 , 21分鐘(5.9公里)/步行444公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/5bd6Oy" target="_blank">軌道交通1號線 , 21分鐘(5.9公里)/步行444公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>東方之門</td>
                         <td>1730-2000</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317304.html" target="_blank">東方之門攻略</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317304.html" target="_blank">東方之門攻略</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>東方之門 -> 飯店</td>
                         <td>2000-2100</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/xKvyLb" target="_blank">軌道交通1號線>軌道交通6號線 , 29分鐘(6.0公里)/步行731公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/xKvyLb" target="_blank">軌道交通1號線>軌道交通6號線 , 29分鐘(6.0公里)/步行731公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2100-2400</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/DblzR5" target="_blank">慧間飯店(拙政園平江路店)/特惠雙床房/含早/CNY166</a><br>
                             <a href="https://drive.google.com/file/d/1HwbXtPzo4wDVbOPv3bMiUGzMcPOuhhmq/view" target="_blank">抖音商城1089997106801301000</a>
                         </td>
@@ -798,121 +983,172 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>早餐</td>
                         <td>0700-0730</td>
                         <td>早餐</td>
-                        <td>飯店早餐</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">飯店早餐</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店行李寄存</td>
                         <td>0730-0740</td>
                         <td></td>
-                        <td>行李寄存</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">行李寄存</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 葑門橫街</td>
                         <td>0740-0820</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/qKvxV3" target="_blank">軌道交通6號線 , 34分鐘(3.5公里)/步行1.8公里/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/qKvxV3" target="_blank">軌道交通6號線 , 34分鐘(3.5公里)/步行1.8公里/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>0740-0810</td>
                         <td>滴滴</td>
-                        <td><a href="https://reurl.cc/QVEyE2" target="_blank">滴滴(CNY10)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/QVEyE2" target="_blank">滴滴(CNY10)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>葑門橫街</td>
                         <td>0820-0950</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://guide.16fan.com/inode/317250.html" target="_blank">葑門橫街攻略</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1704491074" target="_blank">葑門橫街</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://guide.16fan.com/inode/317250.html" target="_blank">葑門橫街攻略</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=1704491074" target="_blank">葑門橫街</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>葑門橫街 -> 十全街</td>
                         <td>0950-1010</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/layqzd" target="_blank">莫邪路>十全街 , 17分鐘(1.2公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/layqzd" target="_blank">莫邪路>十全街 , 17分鐘(1.2公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>十全街</td>
                         <td>1010-1200</td>
                         <td>漫遊</td>
-                        <td>
-                            <a href="https://guide.16fan.com/inode/317248.html" target="_blank">十全街攻略</a> / 
-                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=35854552" target="_blank">十全街</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://guide.16fan.com/inode/317248.html" target="_blank">十全街攻略</a> / 
+                            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTOs1lm5EPdxUVviZxcW41Fvzczi9f8CiXmgPw1fVIZIrVneM6lN6WsMr6r74gZ37x-reQsxR04FiB5/pubhtml#gid=35854552" target="_blank">十全街</a>
+                        </td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>十全街 -> 雙塔市集</td>
                         <td>1200-1220</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/gn6OYb" target="_blank">十全街>定慧寺巷>......>石匠弄 , 17分鐘(1.2公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/gn6OYb" target="_blank">十全街>定慧寺巷>......>石匠弄 , 17分鐘(1.2公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>雙塔市集</td>
                         <td>1220-1320</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317245.html" target="_blank">雙塔市集攻略</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317245.html" target="_blank">雙塔市集攻略</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>雙塔市集 -> 雙塔</td>
                         <td>1320-1330</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/GGp9ax" target="_blank">石匠弄 > 定慧寺巷 , 3分鐘(217米)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/GGp9ax" target="_blank">石匠弄 > 定慧寺巷 , 3分鐘(217米)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>雙塔</td>
                         <td>1330-1530</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317244.html" target="_blank">定慧寺/雙塔</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317244.html" target="_blank">定慧寺/雙塔</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>雙塔 -> 飯店</td>
                         <td>1530-1600</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/NNlkOQ" target="_blank">石匠弄>干將東路>......>臨頓路 , 23分鐘(1.7公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/NNlkOQ" target="_blank">石匠弄>干將東路>......>臨頓路 , 23分鐘(1.7公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>1530-1550</td>
                         <td>滴滴</td>
-                        <td><a href="https://reurl.cc/MMja94" target="_blank">滴滴(CNY10)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/MMja94" target="_blank">滴滴(CNY10)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 同里古鎮</td>
                         <td>1600-1800</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/zKDvXa" target="_blank">軌道交通4號線> 吳江智軌T1示範線 , 1小時48分鐘(37.9公里)/步行2.1公里/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/zKDvXa" target="_blank">軌道交通4號線> 吳江智軌T1示範線 , 1小時48分鐘(37.9公里)/步行2.1公里/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>1600-1730</td>
                         <td>滴滴/地鐵</td>
-                        <td>
-                             <a href="https://reurl.cc/ORrley" target="_blank">飯店>北寺塔站(滴滴CNY10)</a><br>
-                             <a href="https://reurl.cc/1kbdq8" target="_blank">北寺塔>同里古鎮(地鐵CNY2,1H22M)</a>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
+                            <a href="https://reurl.cc/ORrley" target="_blank">飯店>北寺塔站(滴滴CNY10)</a><br>
+                            <a href="https://reurl.cc/1kbdq8" target="_blank">北寺塔>同里古鎮(地鐵CNY2,1H22M)</a>
                         </td>
                     </tr>
-                    <tr>
+                    
+                    <tr class="schedule-row">
                         <td>同里古鎮</td>
                         <td>1800-2000</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/317310.html" target="_blank">同里古鎮攻略</a> / 1715後免票</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/317310.html" target="_blank">同里古鎮攻略</a> / 1715後免票</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>1800-2400</td>
                         <td>住宿</td>
-                        <td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/VmLzvn" target="_blank">天易居·庭院客棧(蘇州同里古鎮店)</a><br>
                             <a href="https://drive.google.com/file/d/16BR0H1iBHAEHRuPHGopwgtIUPSjICSrG/view" target="_blank">祥雲閣·庭院標準間/NTD821</a>
                         </td>
@@ -928,60 +1164,82 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>同里古鎮</td>
                         <td>0800-1030</td>
                         <td>漫遊</td>
-                        <td></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>同里古鎮 -> 蘇州站</td>
                         <td>1030-1230</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/KOlmnj" target="_blank">吳江智軌T1示範線>軌道交通4號線 , 1小時24分鐘(37.9公里)/步行485公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/KOlmnj" target="_blank">吳江智軌T1示範線>軌道交通4號線 , 1小時24分鐘(37.9公里)/步行485公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>蘇州站 -> 上海虹橋站</td>
                         <td>1242-1316</td>
                         <td>高鐵</td>
-                        <td><a href="https://reurl.cc/3b40nR" target="_blank">蘇州/上海虹橋[D3013]34分鐘</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/3b40nR" target="_blank">蘇州/上海虹橋[D3013]34分鐘</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>上海虹橋站 -> 飯店</td>
                         <td>1330-1410</td>
                         <td>公交</td>
-                        <td><a href="https://reurl.cc/pKvzG4" target="_blank">虹橋樞紐4路 , 35分鐘(5.6公里)/步行616公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/pKvzG4" target="_blank">虹橋樞紐4路 , 35分鐘(5.6公里)/步行616公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店 -> 七寶古鎮</td>
                         <td>1430-1520</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/VmMrbb" target="_blank">新龍路>七莘路>......>步行街 , 19分鐘(1.4公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/VmMrbb" target="_blank">新龍路>七莘路>......>步行街 , 19分鐘(1.4公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>七寶古鎮</td>
                         <td>1600-1900</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/313386.html" target="_blank">七寶古鎮攻略</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/313386.html" target="_blank">七寶古鎮攻略</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>七寶古鎮 -> 飯店</td>
                         <td>1900-2000</td>
                         <td>步行</td>
-                        <td><a href="https://reurl.cc/VmMrKQ" target="_blank">步行街>七莘路>......>新龍路 , 20分鐘(1.4公里)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/VmMrKQ" target="_blank">步行街>七莘路>......>新龍路 , 20分鐘(1.4公里)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>2000-2400</td>
-                        <td>步行</td>
-                        <td>
+                        <td>住宿</td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/ORrlx3" target="_blank">藝選飯店(上海虹橋機場七寶地鐵站店)</a><br>
                             <a href="https://drive.google.com/file/d/1XFIwNl0pVYX_Gz2svBPSHoKHKnCQ2l9b/view" target="_blank">精緻大床房【智能馬桶+4k電視】/NTD884</a>
                         </td>
@@ -997,72 +1255,100 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>飯店 -> 南翔地鐵站</td>
                         <td>0800-0930</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/ZlVpal" target="_blank">地鐵9號>地鐵11號線 , 1小時7分鐘(28.6公里)/步行699公尺/5元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/ZlVpal" target="_blank">地鐵9號>地鐵11號線 , 1小時7分鐘(28.6公里)/步行699公尺/5元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南翔地鐵站 -> 南翔古鎮</td>
                         <td>0930-0950</td>
                         <td>滴滴</td>
-                        <td><a href="https://reurl.cc/4bdZgK" target="_blank">滴滴(CNY14)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/4bdZgK" target="_blank">滴滴(CNY14)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>古鎮行李寄存</td>
                         <td>1000-1010</td>
                         <td></td>
-                        <td>南翔古鎮遊客中心可提供免費行李寄放服務。</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">南翔古鎮遊客中心可提供免費行李寄放服務。</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南翔古鎮</td>
                         <td>1020-1300</td>
                         <td>漫遊</td>
-                        <td>免票</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">免票</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南翔古鎮 -> 南翔地鐵站</td>
                         <td>1310-1320</td>
-                        <td></td>
-                        <td><a href="https://reurl.cc/MMjqd4" target="_blank">滴滴(CNY14)</a></td>
+                        <td>交通</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/MMjqd4" target="_blank">滴滴(CNY14)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>南翔地鐵站 -> 朱家角地鐵站</td>
                         <td>1330-1530</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/xKvngV" target="_blank">地鐵11號線>地鐵2號線>地鐵17號線 , 1小時36分鐘(60.8公里)/步行276公尺/9元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/xKvngV" target="_blank">地鐵11號線>地鐵2號線>地鐵17號線 , 1小時36分鐘(60.8公里)/步行276公尺/9元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>朱家角地鐵站 -> 飯店</td>
                         <td>1530-1550</td>
                         <td>滴滴</td>
-                        <td><a href="https://reurl.cc/mkyEL1" target="_blank">滴滴(CNY14)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/mkyEL1" target="_blank">滴滴(CNY14)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>1530-1600</td>
                         <td>公交</td>
-                        <td><a href="https://reurl.cc/layG99" target="_blank">青浦28路/青浦35路/青小線等 , 14分鐘(1.4公里)/步行240公尺/2元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/layG99" target="_blank">青浦28路/青浦35路/青小線等 , 14分鐘(1.4公里)/步行240公尺/2元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>朱家角古鎮</td>
                         <td>1600-1900</td>
                         <td>漫遊</td>
-                        <td><a href="https://guide.16fan.com/inode/316816.html" target="_blank">朱家角古鎮攻略</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://guide.16fan.com/inode/316816.html" target="_blank">朱家角古鎮攻略</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>飯店入住</td>
                         <td>1900-2400</td>
-                        <td>漫遊</td>
-                        <td>
+                        <td>住宿</td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">
                             <a href="https://reurl.cc/jmyL1p" target="_blank">華舒逸飯店(青浦區朱家角古鎮店)</a><br>
                             <a href="https://drive.google.com/file/d/1bmEu3Kl_D76egaqV6e4X7L6k8JUJd_eL/view" target="_blank">高級雙床房/CNY215</a>
                         </td>
@@ -1078,54 +1364,73 @@
             <table>
                 <thead>
                     <tr>
-                        <th width="15%">行程</th>
-                        <th width="15%">時間</th>
-                        <th width="10%">類型</th>
-                        <th>交通/備註</th>
+                        <th class="col-itinerary">行程</th>
+                        <th class="col-time">時間</th>
+                        <th class="col-type">類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="schedule-row">
                         <td>飯店 -> 朱家角地鐵站</td>
                         <td>0930-0950</td>
                         <td>滴滴</td>
-                        <td><a href="https://reurl.cc/mkyEZM" target="_blank">滴滴(CNY14)</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/mkyEZM" target="_blank">滴滴(CNY14)</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>0930-1000</td>
                         <td>公交</td>
-                        <td><a href="https://reurl.cc/yKvzk8" target="_blank">青金線/青浦35路/青蒸線等 , 23分鐘(1.6公里)/步行305公尺/1元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/yKvzk8" target="_blank">青金線/青浦35路/青蒸線等 , 23分鐘(1.6公里)/步行305公尺/1元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>朱家角地鐵站 -> 機場</td>
                         <td>1000-1230</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/pKvO6e" target="_blank">地鐵17號線>地鐵2號線 , 2小時24分鐘(90.6公里)/步行362公尺/11元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/pKvO6e" target="_blank">地鐵17號線>地鐵2號線 , 2小時24分鐘(90.6公里)/步行362公尺/11元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>(備選)</td>
                         <td>1000-1200</td>
                         <td>地鐵</td>
-                        <td><a href="https://reurl.cc/layG7E" target="_blank">地鐵17號線>地鐵2號線>市域機場線 , 1小時40分鐘(92.0公里)/步行421公尺/32元</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://reurl.cc/layG7E" target="_blank">地鐵17號線>地鐵2號線>市域機場線 , 1小時40分鐘(92.0公里)/步行421公尺/32元</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>候機</td>
                         <td>1230-1430</td>
                         <td>候機</td>
-                        <td>浦東機場T2</td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3">浦東機場T2</td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>上海 -> 桃園</td>
                         <td>1435-1650</td>
                         <td>飛行</td>
-                        <td><a href="https://drive.google.com/file/d/1Bqf1K_GBKDRu4_ojbPgcLMzwrjImIgdg/view" target="_blank">浦東T2(PVG)→桃園T2(TPE)[CZ3095]</a></td>
                     </tr>
-                    <tr>
+                    <tr class="detail-row">
+                        <td colspan="3"><a href="https://drive.google.com/file/d/1Bqf1K_GBKDRu4_ojbPgcLMzwrjImIgdg/view" target="_blank">浦東T2(PVG)→桃園T2(TPE)[CZ3095]</a></td>
+                    </tr>
+                    
+                    <tr class="schedule-row">
                         <td>機場 -> 住家</td>
                         <td>1730-1930</td>
                         <td>捷運</td>
-                        <td>機捷+捷運</td>
+                    </tr>
+                    <tr class="detail-row">
+                        <td colspan="3">機捷+捷運</td>
                     </tr>
                 </tbody>
             </table>
