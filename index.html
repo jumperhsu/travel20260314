@@ -5,41 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>台北-上海蘇州9天悠閒深度遊行程表</title>
     <style>
+        :root {
+            --primary-color: #0b454f;
+            --secondary-color: #f4f7f6;
+            --accent-color: #d4af37;
+            --light-color: #fffff0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            background-color: #f4f7f6;
+            background-color: var(--secondary-color);
             margin: 0;
-            padding: 20px;
+            padding: 0;
             color: #333;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
         }
 
         header {
-            background-color: #0b454f; /* 圖片中的深綠色 */
+            background-color: var(--primary-color);
             color: white;
-            padding: 20px;
+            padding: 20px 15px;
             text-align: center;
         }
 
         h1 {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
-        /* Tabs Navigation */
+        /* Tabs Navigation - RWD改進 */
         .tabs {
             display: flex;
             flex-wrap: wrap;
             background-color: #e0e0e0;
-            border-bottom: 2px solid #0b454f;
+            border-bottom: 2px solid var(--primary-color);
         }
 
         .tab-button {
@@ -47,13 +59,15 @@
             border: none;
             outline: none;
             cursor: pointer;
-            padding: 14px 16px;
+            padding: 14px 10px;
             transition: 0.3s;
-            font-size: 16px;
+            font-size: 15px;
             flex-grow: 1;
             text-align: center;
             font-weight: bold;
             color: #555;
+            min-width: 80px;
+            flex-basis: 11.1%; /* 9個選項卡，每個約佔11.1% */
         }
 
         .tab-button:hover {
@@ -62,8 +76,8 @@
 
         .tab-button.active {
             background-color: #fff;
-            color: #0b454f;
-            border-top: 4px solid #0b454f;
+            color: var(--primary-color);
+            border-top: 4px solid var(--primary-color);
         }
 
         /* Tab Content */
@@ -78,20 +92,30 @@
             to {opacity: 1;}
         }
 
-        /* Table Styling */
-        table {
-            width: 100%;
-            min-width: 600px;
-            border-collapse: collapse;
-            margin-top: 10px;
+        .tab-content h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
-        
+
+        /* 表格響應式設計 */
         .table-wrapper {
             overflow-x: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
         }
 
         th, td {
-            padding: 12px;
+            padding: 12px 10px;
             border: 1px solid #ddd;
             text-align: left;
             vertical-align: top;
@@ -100,6 +124,7 @@
         th {
             background-color: #f2f2f2;
             color: #333;
+            font-weight: 600;
             white-space: nowrap;
         }
 
@@ -107,17 +132,19 @@
             background-color: #f9f9f9;
         }
 
-        /* General Link Styling for table content */
+        /* 表格鏈接樣式 */
         .table-wrapper a {
             color: #0066cc;
             text-decoration: none;
             font-weight: bold;
             background-color: #ebf5ff;
-            padding: 2px 5px;
+            padding: 3px 6px;
             border-radius: 4px;
             border: 1px dashed #0066cc;
             display: inline-block;
-            margin: 2px 0;
+            margin: 3px 0;
+            word-break: break-all;
+            transition: all 0.2s ease;
         }
 
         .table-wrapper a:hover {
@@ -126,36 +153,196 @@
             text-decoration: none;
         }
 
-        /* --- Footer Links Styles (Day 9 bottom) --- */
+        /* 頁腳鏈接樣式 */
         .footer-links-container {
             text-align: center;
             margin-top: 30px;
             font-weight: bold;
-            background-color: #0b454f;
+            background-color: var(--primary-color);
             color: white;
             padding: 20px 15px;
             border-radius: 4px;
         }
 
         .footer-links-container a {
-            background-color: #fffff0; /* 象牙白/淡黃色背景 */
-            color: #d4af37; /* 金黃色文字 */
-            border: 2px solid #ffd700; /* 亮金色邊框 */
-            padding: 8px 15px;
-            margin: 0 8px;
+            background-color: var(--light-color);
+            color: var(--accent-color);
+            border: 2px solid #ffd700;
+            padding: 10px 15px;
+            margin: 8px 5px;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
             text-decoration: none;
             display: inline-block;
             border-radius: 8px;
-            font-size: 1.1em;
+            font-size: 1em;
             transition: all 0.3s ease;
         }
 
         .footer-links-container a:hover {
             background-color: #ffd700;
-            color: #0b454f;
+            color: var(--primary-color);
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
             transform: translateY(-2px);
+        }
+
+        /* 響應式媒體查詢 */
+        @media (max-width: 1024px) {
+            .container {
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+            .tab-button {
+                flex-basis: 25%; /* 4個選項卡一行 */
+                font-size: 14px;
+                padding: 12px 5px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+                font-size: 14px;
+            }
+            
+            .container {
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            
+            header {
+                padding: 15px 10px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .tab-button {
+                flex-basis: 33.33%; /* 3個選項卡一行 */
+                font-size: 13px;
+                padding: 10px 5px;
+            }
+            
+            .tab-button span {
+                font-size: 0.75em;
+            }
+            
+            .tab-content {
+                padding: 15px 10px;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.2rem;
+                padding-bottom: 8px;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                font-size: 13px;
+            }
+            
+            .table-wrapper a {
+                padding: 2px 4px;
+                font-size: 12px;
+            }
+            
+            .footer-links-container {
+                padding: 15px 10px;
+            }
+            
+            .footer-links-container a {
+                padding: 8px 10px;
+                font-size: 0.9em;
+                margin: 5px 3px;
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.1rem;
+            }
+            
+            .tab-button {
+                flex-basis: 50%; /* 2個選項卡一行 */
+                font-size: 12px;
+                padding: 8px 4px;
+            }
+            
+            .tab-content h2 {
+                font-size: 1.1rem;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+                font-size: 12px;
+            }
+            
+            .table-wrapper {
+                margin: 10px -10px;
+                width: calc(100% + 20px);
+            }
+            
+            .footer-links-container a {
+                padding: 6px 8px;
+                font-size: 0.85em;
+                margin: 4px 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .tab-button {
+                font-size: 11px;
+            }
+            
+            .tab-button span {
+                font-size: 0.7em;
+            }
+            
+            th, td {
+                font-size: 11px;
+            }
+        }
+
+        /* 打印樣式 */
+        @media print {
+            body {
+                background-color: white;
+                font-size: 12pt;
+            }
+            
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .tabs, .footer-links-container {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+            
+            table {
+                page-break-inside: auto;
+            }
+            
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
         }
     </style>
 </head>
@@ -167,15 +354,15 @@
     </header>
 
     <div class="tabs">
-        <button class="tab-button active" onclick="openCity(event, 'Day1')">Day 1<br><span style="font-size:0.8em">03/14 (六)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day2')">Day 2<br><span style="font-size:0.8em">03/15 (日)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day3')">Day 3<br><span style="font-size:0.8em">03/16 (一)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day4')">Day 4<br><span style="font-size:0.8em">03/17 (二)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day5')">Day 5<br><span style="font-size:0.8em">03/18 (三)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day6')">Day 6<br><span style="font-size:0.8em">03/19 (四)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day7')">Day 7<br><span style="font-size:0.8em">03/20 (五)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day8')">Day 8<br><span style="font-size:0.8em">03/21 (六)</span></button>
-        <button class="tab-button" onclick="openCity(event, 'Day9')">Day 9<br><span style="font-size:0.8em">03/22 (日)</span></button>
+        <button class="tab-button active" onclick="openCity(event, 'Day1')">Day 1<br><span>03/14 (六)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day2')">Day 2<br><span>03/15 (日)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day3')">Day 3<br><span>03/16 (一)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day4')">Day 4<br><span>03/17 (二)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day5')">Day 5<br><span>03/18 (三)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day6')">Day 6<br><span>03/19 (四)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day7')">Day 7<br><span>03/20 (五)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day8')">Day 8<br><span>03/21 (六)</span></button>
+        <button class="tab-button" onclick="openCity(event, 'Day9')">Day 9<br><span>03/22 (日)</span></button>
     </div>
 
     <div id="Day1" class="tab-content" style="display: block;">
@@ -948,7 +1135,7 @@
                 <a href="https://plan.qyer.com/trip/V2cJYVFkBzJTYVI6CmoNOA/?fromjournalview=1" target="_blank">行程地圖</a> / 
                 <a href="https://ditu.amap.com/roadbook/6934064fe78b4a0d183137d0" target="_blank">高德路書</a>
             </div>
-            </div>
+        </div>
     </div>
 
 </div>
@@ -966,7 +1153,22 @@
         }
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " active";
+        
+        // 儲存當前選中的選項卡到sessionStorage
+        sessionStorage.setItem('activeTab', cityName);
     }
+    
+    // 頁面加載時檢查是否有儲存的選項卡
+    document.addEventListener('DOMContentLoaded', function() {
+        var activeTab = sessionStorage.getItem('activeTab');
+        if (activeTab) {
+            // 找到對應的按鈕並點擊它
+            var tabButton = document.querySelector('.tab-button[onclick*="' + activeTab + '"]');
+            if (tabButton) {
+                tabButton.click();
+            }
+        }
+    });
 </script>
 
 </body>
